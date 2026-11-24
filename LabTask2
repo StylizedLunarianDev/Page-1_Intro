@@ -18,59 +18,69 @@ ayayaya... T^T
             //int secav[int count=0; students<2; count++]
             System.out.println("Input 9 Elements:");
  
+
 import java.util.Scanner;
 
-public class V3Matrix {
+public class V3matrix {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         // [section][students][subjects]
-        int V3[][][] = new int[2][3][4];
+        int V3[][][] = new int[2][3][3];
+        
+        // permanant declaration so i can call it whenever i damned please
+        double stuav;
+        double secav;
 
-        // INPUT
+        // 2 sections input
         for (int section = 0; section < 2; section++) {
+            System.out.println("\nSection " + (section + 1) + "\n-------------------------");
+
             for (int student = 0; student < 3; student++) {
 
-                System.out.println("\nSection " + (section + 1) +
-                                   " Student " + (student + 1));
-
+                System.out.println("Student " + (student + 1));
+                //subects
                 System.out.print("Java: ");
                 V3[section][student][0] = sc.nextInt();
 
-                System.out.print("Data: ");
+                System.out.print("Database: ");
                 V3[section][student][1] = sc.nextInt();
 
-                System.out.print("Network: ");
+                System.out.print("Networking: ");
                 V3[section][student][2] = sc.nextInt();
 
-                // SUM
-                V3[section][student][3] =
-                    V3[section][student][0] +
-                    V3[section][student][1] +
-                    V3[section][student][2];
+                // Average
+                // Make a loop q q
+                stuav = 
+                (
+                    V3[section][student][0] 
+                    + 
+                    V3[section][student][1] 
+                    + 
+                    V3[section][student][2]
+                ) /3.0
+                ;
+
+                System.out.printf("Student Average: %.2f \n\n", stuav);
+
             }
+            //Section Average
+            secav = (
+                V3[section][0][0]
+                +
+                V3[section][1][0]
+                +
+                V3[section][2][0]
+            )/3;
+            System.out.printf("Section Average: %.2f\n\n",secav);
+            
         }
 
-        // OUTPUT
-        for (int section = 0; section < 2; section++) {
-            System.out.println("\nSECTION " + (section + 1));
-
-            System.out.println("Student\tJava\tData\tNetwork\tSum");
-
-            for (int student = 0; student < 3; student++) {
-                System.out.print((student + 1) + "\t");
-
-                for (int sub = 0; sub < 4; sub++) {
-                    System.out.print(V3[section][student][sub] + "\t");
-                }
-
-                System.out.println();
-            }
-        }
-
+       
         sc.close();
     }
 }
 
+ 
  
  
